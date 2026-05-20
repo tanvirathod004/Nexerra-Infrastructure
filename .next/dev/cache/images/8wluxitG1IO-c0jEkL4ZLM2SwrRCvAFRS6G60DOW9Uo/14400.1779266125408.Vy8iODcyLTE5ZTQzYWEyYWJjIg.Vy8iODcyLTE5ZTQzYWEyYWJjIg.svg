@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 413 343">
+
+  <!-- ── Building icon ─────────────────────────────── -->
+  <g fill="#6B8C6B">
+
+    <!-- Left ascending staircase bars -->
+    <rect x="47"  y="149" width="17" height="26"/>
+    <rect x="70"  y="126" width="17" height="49"/>
+    <rect x="93"  y="97"  width="17" height="78"/>
+
+    <!-- N: left column  (4 segments / 3 white window gaps) -->
+    <rect x="116" y="33"  width="26" height="25"/>
+    <rect x="116" y="64"  width="26" height="25"/>
+    <rect x="116" y="95"  width="26" height="25"/>
+    <rect x="116" y="126" width="26" height="49"/>
+
+    <!-- N: diagonal (parallelogram UL→BR across the gap) -->
+    <polygon points="142,33 156,33 169,175 155,175"/>
+
+    <!-- N: right column  (4 segments / 3 white window gaps) -->
+    <rect x="169" y="33"  width="26" height="25"/>
+    <rect x="169" y="64"  width="26" height="25"/>
+    <rect x="169" y="95"  width="26" height="25"/>
+    <rect x="169" y="126" width="26" height="49"/>
+
+    <!-- Right buildings -->
+    <!-- Medium building -->
+    <rect x="202" y="60"  width="22" height="115"/>
+
+    <!-- Tall stepped building (L-shape: tall left, shorter right) -->
+    <path d="M 230,175 L 230,22 L 250,22 L 250,60 L 269,60 L 269,175 Z"/>
+
+    <!-- Short far-right building -->
+    <rect x="278" y="93"  width="19" height="82"/>
+
+  </g>
+
+  <!-- ── "Nexerra" logotype ─────────────────────────── -->
+  <text
+    x="206.5" y="237"
+    text-anchor="middle"
+    font-family="'Gill Sans MT','Gill Sans','Calibri','Trebuchet MS',Helvetica,Arial,sans-serif"
+    font-weight="300"
+    font-size="65"
+    letter-spacing="3"
+    fill="#6B8C6B">Nexerra</text>
+
+  <!-- ── "INFRASTRUCTURE" tagline ──────────────────── -->
+  <text
+    x="206.5" y="278"
+    text-anchor="middle"
+    font-family="'Gill Sans MT','Gill Sans','Calibri','Trebuchet MS',Helvetica,Arial,sans-serif"
+    font-weight="300"
+    font-size="16"
+    letter-spacing="10"
+    fill="#6B8C6B">INFRASTRUCTURE</text>
+
+</svg>
