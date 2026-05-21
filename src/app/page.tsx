@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import MarqueeBanner from "@/components/MarqueeBanner";
-import Stats from "@/components/Stats";
 import About from "@/components/About";
 import Services from "@/components/Services";
 import WhyChooseUs from "@/components/WhyChooseUs";
@@ -19,7 +18,6 @@ export default function Home() {
       <Navbar />
       <Hero />
       <MarqueeBanner />
-      <Stats />
       <About />
       <Services />
       <WhyChooseUs />
