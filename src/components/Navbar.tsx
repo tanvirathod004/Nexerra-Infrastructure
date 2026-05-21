@@ -74,13 +74,13 @@ export default function Navbar() {
           {/* ── Desktop CTA ─────────────────────── */}
           <div className="hidden lg:flex items-center gap-4">
             <a
-              href={`tel:${companyInfo.phones[0].number.replace(/\s/g,"")}`}
+              href={`tel:${companyInfo.phones[1].number.replace(/\s/g,"")}`}
               className={`flex items-center gap-1.5 text-sm font-semibold transition-colors ${
                 scrolled ? "text-[#6B8C6B]" : "text-[#8FBB8F]"
               } hover:text-[#3D5E3D]`}
             >
               <Phone className="w-3.5 h-3.5" />
-              {companyInfo.phones[0].number}
+              {companyInfo.phones[1].number}
             </a>
             <button
               onClick={() => scrollTo("#contact")}
@@ -124,11 +124,11 @@ export default function Navbar() {
             ))}
             <div className="pt-3 border-t border-[#E2E1DC] flex flex-col gap-2">
               <a
-                href={`tel:${companyInfo.phones[0].number.replace(/\s/g,"")}`}
+                href={`tel:${companyInfo.phones[1].number.replace(/\s/g,"")}`}
                 className="flex items-center gap-2 text-[#6B8C6B] font-semibold text-sm px-4 py-2"
               >
                 <Phone className="w-4 h-4" />
-                {companyInfo.phones[0].number}
+                {companyInfo.phones[1].number}
               </a>
               <button
                 onClick={() => { scrollTo("#contact"); setIsOpen(false); }}
