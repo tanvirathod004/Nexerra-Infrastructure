@@ -9,11 +9,11 @@ export const companyInfo = {
   email: "nexerrainfrastructure@gmail.com",
   phones: [
     { name: "Ramesh Chotaliya", number: "+91 942 276 7733" },
-    { name: "Deep Chotaliya", number: "+91 965 709 5333" },
     { name: "Niravv Chotaliyaa", number: "+91 776 909 1666" },
+    { name: "Deep Chotaliya", number: "+91 965 709 5333" },
   ],
-  address: "Floor No. 3, Om Residency, Swami Nagar, Makhmalabad, Nashik",
-  whatsapp: "919422767733",
+  address: "Floor No. 1, Shop no 56, Nysa Business Complex, Makhmalabad, Nashik",
+  whatsapp: "917769091666",
 };
 
 export const services = [

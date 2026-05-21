@@ -61,10 +61,10 @@ export default function Footer() {
             </p>
 
             <div className="space-y-3">
-              <a href={`tel:${companyInfo.phones[0].number.replace(/\s/g, "")}`}
+              <a href={`tel:${companyInfo.phones[1].number.replace(/\s/g, "")}`}
                 className="flex items-center gap-2.5 text-white/40 hover:text-[#8FBB8F] text-sm transition-colors">
                 <Phone className="w-4 h-4 text-[#6B8C6B] flex-shrink-0" />
-                {companyInfo.phones[0].number}
+                {companyInfo.phones[1].number}
               </a>
               <a href={`mailto:${companyInfo.email}`}
                 className="flex items-center gap-2.5 text-white/40 hover:text-[#8FBB8F] text-sm transition-colors">
