@@ -35,6 +35,19 @@ export default function Footer() {
       <div className="absolute inset-0 arch-grid opacity-20" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
+
+        {/* Logo watermark — centered behind grid content */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+          <Image
+            src="/nexerra-logo.png"
+            alt=""
+            width={500}
+            height={400}
+            className="object-contain"
+            style={{ opacity: 0.06, filter: "brightness(0) invert(1)" }}
+          />
+        </div>
+
         <motion.div
           className="grid lg:grid-cols-4 gap-10 mb-12"
           variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.1 } } }}

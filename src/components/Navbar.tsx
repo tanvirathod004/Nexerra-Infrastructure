@@ -1,15 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, Mail } from "lucide-react";
 import Image from "next/image";
 import { companyInfo } from "@/lib/data";
 
 const navLinks = [
   { href: "#home",     label: "Home" },
   { href: "#about",    label: "About" },
-  { href: "#services", label: "Services" },
+  { href: "#services", label: "Services", dropdown: false },
   { href: "#projects", label: "Projects" },
   { href: "#team",     label: "Team" },
   { href: "#contact",  label: "Contact" },
@@ -20,126 +20,143 @@ function scrollTo(href: string) {
 }
 
 export default function Navbar() {
-  const [isOpen,   setIsOpen]   = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 30);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const navBg = scrolled
-    ? "bg-white/95 backdrop-blur-md shadow-sm shadow-black/8 py-3"
-    : "bg-transparent py-5";
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${navBg}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50">
 
-          {/* ── Logo ───────────────────────────── */}
-          <button
-            onClick={() => scrollTo("#home")}
-            className="group focus:outline-none"
-          >
-            <div className="group-hover:scale-105 transition-transform duration-300">
-              <Image
-                src="/nexerra-logo.png"
-                alt="Nexerra Infrastructure"
-                width={200}
-                height={160}
-                className="object-contain h-28 w-auto"
-                priority
-              />
-            </div>
-          </button>
-
-          {/* ── Desktop links ───────────────────── */}
-          <div className="hidden lg:flex items-center gap-7">
-            {navLinks.map((link) => (
-              <button
-                key={link.href}
-                onClick={() => scrollTo(link.href)}
-                className={`relative text-sm font-semibold tracking-wide transition-colors duration-200 group focus:outline-none ${
-                  scrolled ? "text-[#3D3D3D] hover:text-[#6B8C6B]" : "text-white/80 hover:text-white"
-                }`}
-              >
-                {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#6B8C6B] rounded-full transition-all duration-300 group-hover:w-full" />
-              </button>
-            ))}
-          </div>
-
-          {/* ── Desktop CTA ─────────────────────── */}
-          <div className="hidden lg:flex items-center gap-4">
+      {/* ── Top announcement bar ────────────────────────── */}
+      <div className="bg-[#1A1A1A] hidden md:block">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-[30px] text-xs">
+          <div className="flex items-center gap-5">
             <a
-              href={`tel:${companyInfo.phones[1].number.replace(/\s/g,"")}`}
-              className={`flex items-center gap-1.5 text-sm font-semibold transition-colors ${
-                scrolled ? "text-[#6B8C6B]" : "text-[#8FBB8F]"
-              } hover:text-[#3D5E3D]`}
+              href={`tel:${companyInfo.phones[1].number.replace(/\s/g, "")}`}
+              className="flex items-center gap-1.5 text-white/55 hover:text-white transition-colors"
             >
-              <Phone className="w-3.5 h-3.5" />
+              <Phone className="w-2.5 h-2.5" />
               {companyInfo.phones[1].number}
             </a>
-            <button
-              onClick={() => scrollTo("#contact")}
-              className="bg-[#6B8C6B] hover:bg-[#3D5E3D] text-white font-bold px-5 py-2.5 rounded-lg text-sm transition-all duration-200 hover:shadow-lg hover:shadow-[#6B8C6B]/30 hover:-translate-y-0.5"
+            <a
+              href={`mailto:${companyInfo.email}`}
+              className="flex items-center gap-1.5 text-white/55 hover:text-white transition-colors"
             >
-              Get Quote
-            </button>
+              <Mail className="w-2.5 h-2.5" />
+              {companyInfo.email}
+            </a>
+            <span className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#6B8C6B]" />
+              <span className="text-[#8FBB8F] font-semibold">ISO 9001:2015 Certified RCC Contractor</span>
+            </span>
           </div>
-
-          {/* ── Mobile toggle ───────────────────── */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className={`lg:hidden p-2 rounded-lg transition-colors focus:outline-none ${
-              scrolled ? "text-[#1A1A1A] hover:bg-[#6B8C6B]/10" : "text-white hover:bg-white/10"
-            }`}
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          <div className="flex items-center gap-4 text-white/45">
+            <span>Maharashtra · Gujarat · PAN India</span>
+            <span className="text-white/20">|</span>
+            {/* <button className="hover:text-white transition-colors">Careers</button> */}
+            <button onClick={() => scrollTo("#contact")} className="hover:text-white transition-colors">Tenders</button>
+          </div>
         </div>
       </div>
 
-      {/* ── Mobile drawer ─────────────────────── */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{  opacity: 0, y: -8 }}
-            transition={{ duration: 0.22 }}
-            className="lg:hidden bg-white border-t border-[#E2E1DC] shadow-xl px-4 py-5 space-y-1"
-          >
-            {navLinks.map((link) => (
+      {/* ── Main navbar ─────────────────────────────────── */}
+      <nav className="bg-white shadow-sm shadow-black/8 border-b border-black/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-[66px]">
+
+            {/* Logo */}
+            <button onClick={() => scrollTo("#home")} className="focus:outline-none group">
+              <Image
+                src="/nexerra-logo.png"
+                alt="Nexerra Infrastructure"
+                width={130}
+                height={104}
+                className="object-contain h-12 w-auto group-hover:scale-105 transition-transform duration-300"
+                priority
+              />
+            </button>
+
+            {/* Desktop nav links */}
+            <div className="hidden lg:flex items-center gap-0.5">
+              {navLinks.map((link) => (
+                <button
+                  key={link.href}
+                  onClick={() => scrollTo(link.href)}
+                  className="flex items-center gap-0.5 px-3.5 py-2 text-sm font-medium text-[#3A3A3A] hover:text-[#6B8C6B] relative group transition-colors focus:outline-none"
+                >
+                  {link.label}
+                  {link.dropdown && (
+                    <ChevronDown className="w-3.5 h-3.5 mt-0.5 opacity-50" />
+                  )}
+                  <span className="absolute bottom-1 left-3.5 right-3.5 h-[2px] bg-[#6B8C6B] rounded-full scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200" />
+                </button>
+              ))}
+            </div>
+
+            {/* Desktop CTA buttons */}
+            <div className="hidden lg:flex items-center gap-3">
               <button
-                key={link.href}
-                onClick={() => { scrollTo(link.href); setIsOpen(false); }}
-                className="w-full text-left text-[#2D2D2D] hover:text-[#6B8C6B] hover:bg-[#F2F5F2] font-semibold py-3 px-4 rounded-xl transition-colors text-sm"
+                onClick={() => scrollTo("#contact")}
+                className="px-5 py-2 text-sm font-semibold border-2 border-[#2A2A2A] text-[#2A2A2A] rounded-lg hover:bg-[#2A2A2A] hover:text-white transition-all duration-200"
               >
-                {link.label}
+                Talk to Us
               </button>
-            ))}
-            <div className="pt-3 border-t border-[#E2E1DC] flex flex-col gap-2">
-              <a
-                href={`tel:${companyInfo.phones[1].number.replace(/\s/g,"")}`}
-                className="flex items-center gap-2 text-[#6B8C6B] font-semibold text-sm px-4 py-2"
-              >
-                <Phone className="w-4 h-4" />
-                {companyInfo.phones[1].number}
-              </a>
               <button
-                onClick={() => { scrollTo("#contact"); setIsOpen(false); }}
-                className="bg-[#6B8C6B] text-white font-bold py-3 px-4 rounded-xl text-sm hover:bg-[#3D5E3D] transition-colors"
+                onClick={() => scrollTo("#contact")}
+                className="px-5 py-2 text-sm font-bold bg-[#6B8C6B] hover:bg-[#3D5E3D] text-white rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-[#6B8C6B]/30 hover:-translate-y-0.5"
               >
-                Get a Free Quote →
+                Request a Quote →
               </button>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
+
+            {/* Mobile toggle */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="lg:hidden p-2 rounded-lg text-[#1A1A1A] hover:bg-[#6B8C6B]/10 transition-colors"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile drawer */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.2 }}
+              className="lg:hidden bg-white border-t border-[#E8E8E8] shadow-xl px-4 py-5 space-y-1"
+            >
+              {navLinks.map((link) => (
+                <button
+                  key={link.href}
+                  onClick={() => { scrollTo(link.href); setIsOpen(false); }}
+                  className="w-full text-left text-[#2D2D2D] hover:text-[#6B8C6B] hover:bg-[#F2F5F2] font-medium py-3 px-4 rounded-xl transition-colors text-sm flex items-center justify-between"
+                >
+                  {link.label}
+                  {link.dropdown && <ChevronDown className="w-4 h-4 opacity-40" />}
+                </button>
+              ))}
+              <div className="pt-3 border-t border-[#E8E8E8] flex flex-col gap-2">
+                <button
+                  onClick={() => { scrollTo("#contact"); setIsOpen(false); }}
+                  className="w-full border-2 border-[#2A2A2A] text-[#2A2A2A] font-semibold py-3 px-4 rounded-xl text-sm hover:bg-[#2A2A2A] hover:text-white transition-colors"
+                >
+                  Talk to Us
+                </button>
+                <button
+                  onClick={() => { scrollTo("#contact"); setIsOpen(false); }}
+                  className="bg-[#6B8C6B] text-white font-bold py-3 px-4 rounded-xl text-sm hover:bg-[#3D5E3D] transition-colors"
+                >
+                  Request a Quote →
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </nav>
+
+    </header>
   );
 }

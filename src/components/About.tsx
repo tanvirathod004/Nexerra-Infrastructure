@@ -69,7 +69,7 @@ export default function About() {
         </motion.div>
 
         {/* ── Animated stat counters ───────────── */}
-        <div ref={counterRef} className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
+        {/* <div ref={counterRef} className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
           {counters.map((c, i) => (
             <motion.div
               key={c.label}
@@ -85,7 +85,7 @@ export default function About() {
               <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#6B8C6B] to-[#8FBB8F] scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left" />
             </motion.div>
           ))}
-        </div>
+        </div> */}
 
         {/* ── Split layout: story + cards ──────── */}
         <div className="grid lg:grid-cols-2 gap-16 items-start mb-24">
