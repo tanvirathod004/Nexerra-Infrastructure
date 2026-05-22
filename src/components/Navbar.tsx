@@ -4,13 +4,15 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Phone, Mail } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { companyInfo } from "@/lib/data";
 
 const navLinks = [
   { href: "#home",     label: "Home" },
   { href: "#about",    label: "About" },
-  { href: "#services", label: "Services", dropdown: false },
-  { href: "#projects", label: "Projects" },
+  { href: "#services",      label: "Services", dropdown: false },
+  { href: "#capabilities",  label: "Capabilities" },
+  { href: "#projects",      label: "Projects" },
   { href: "#team",     label: "Team" },
   { href: "#contact",  label: "Contact" },
 ];
@@ -60,19 +62,20 @@ export default function Navbar() {
       {/* ── Main navbar ─────────────────────────────────── */}
       <nav className="bg-white shadow-sm shadow-black/8 border-b border-black/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-[66px]">
+          <div className="flex items-center justify-between h-[76px]">
 
             {/* Logo */}
-            <button onClick={() => scrollTo("#home")} className="focus:outline-none group">
+            <Link href="/" className="focus:outline-none group cursor-pointer">
               <Image
-                src="/nexerra-logo.png"
+                src="/Nexerra-sage-dark.png"
                 alt="Nexerra Infrastructure"
-                width={130}
-                height={104}
-                className="object-contain h-12 w-auto group-hover:scale-105 transition-transform duration-300"
+                width={185}
+                height={148}
+                className="object-contain h-[68px] w-auto group-hover:scale-105 transition-transform duration-300"
+                style={{ filter: "saturate(1.6) brightness(0.68)" }}
                 priority
               />
-            </button>
+            </Link>
 
             {/* Desktop nav links */}
             <div className="hidden lg:flex items-center gap-0.5">
@@ -80,7 +83,7 @@ export default function Navbar() {
                 <button
                   key={link.href}
                   onClick={() => scrollTo(link.href)}
-                  className="flex items-center gap-0.5 px-3.5 py-2 text-sm font-medium text-[#3A3A3A] hover:text-[#6B8C6B] relative group transition-colors focus:outline-none"
+                  className="flex items-center gap-0.5 px-3.5 py-2 text-sm font-medium text-[#3A3A3A] hover:text-[#6B8C6B] relative group transition-colors focus:outline-none cursor-pointer"
                 >
                   {link.label}
                   {link.dropdown && (
@@ -95,13 +98,13 @@ export default function Navbar() {
             <div className="hidden lg:flex items-center gap-3">
               <button
                 onClick={() => scrollTo("#contact")}
-                className="px-5 py-2 text-sm font-semibold border-2 border-[#2A2A2A] text-[#2A2A2A] rounded-lg hover:bg-[#2A2A2A] hover:text-white transition-all duration-200"
+                className="px-5 py-2 text-sm font-semibold border-2 border-[#2A2A2A] text-[#2A2A2A] rounded-lg hover:bg-[#2A2A2A] hover:text-white transition-all duration-200 cursor-pointer"
               >
                 Talk to Us
               </button>
               <button
                 onClick={() => scrollTo("#contact")}
-                className="px-5 py-2 text-sm font-bold bg-[#6B8C6B] hover:bg-[#3D5E3D] text-white rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-[#6B8C6B]/30 hover:-translate-y-0.5"
+                className="px-5 py-2 text-sm font-bold bg-[#6B8C6B] hover:bg-[#3D5E3D] text-white rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-[#6B8C6B]/30 hover:-translate-y-0.5 cursor-pointer"
               >
                 Request a Quote →
               </button>
@@ -132,7 +135,7 @@ export default function Navbar() {
                 <button
                   key={link.href}
                   onClick={() => { scrollTo(link.href); setIsOpen(false); }}
-                  className="w-full text-left text-[#2D2D2D] hover:text-[#6B8C6B] hover:bg-[#F2F5F2] font-medium py-3 px-4 rounded-xl transition-colors text-sm flex items-center justify-between"
+                  className="w-full text-left text-[#2D2D2D] hover:text-[#6B8C6B] hover:bg-[#F2F5F2] font-medium py-3 px-4 rounded-xl transition-colors text-sm flex items-center justify-between cursor-pointer"
                 >
                   {link.label}
                   {link.dropdown && <ChevronDown className="w-4 h-4 opacity-40" />}
@@ -141,13 +144,13 @@ export default function Navbar() {
               <div className="pt-3 border-t border-[#E8E8E8] flex flex-col gap-2">
                 <button
                   onClick={() => { scrollTo("#contact"); setIsOpen(false); }}
-                  className="w-full border-2 border-[#2A2A2A] text-[#2A2A2A] font-semibold py-3 px-4 rounded-xl text-sm hover:bg-[#2A2A2A] hover:text-white transition-colors"
+                  className="w-full border-2 border-[#2A2A2A] text-[#2A2A2A] font-semibold py-3 px-4 rounded-xl text-sm hover:bg-[#2A2A2A] hover:text-white transition-colors cursor-pointer"
                 >
                   Talk to Us
                 </button>
                 <button
                   onClick={() => { scrollTo("#contact"); setIsOpen(false); }}
-                  className="bg-[#6B8C6B] text-white font-bold py-3 px-4 rounded-xl text-sm hover:bg-[#3D5E3D] transition-colors"
+                  className="bg-[#6B8C6B] text-white font-bold py-3 px-4 rounded-xl text-sm hover:bg-[#3D5E3D] transition-colors cursor-pointer"
                 >
                   Request a Quote →
                 </button>

@@ -118,7 +118,7 @@ export default function WhyChooseUs() {
             <motion.div
               key={reason.title}
               variants={cardVariant}
-              className="group relative bg-white/4 border border-white/8 rounded-2xl p-8 hover:bg-white/8 hover:border-[#6B8C6B]/30 hover:-translate-y-1 transition-all duration-300"
+              className="group relative bg-white/4 border border-white/8 rounded-lg p-8 hover:bg-white/8 hover:border-[#6B8C6B]/30 hover:-translate-y-1 transition-all duration-300"
             >
               {/* Top row */}
               <div className="flex items-start justify-between mb-6">
@@ -141,7 +141,7 @@ export default function WhyChooseUs() {
         </motion.div>
 
         {/* ── Equipment highlight ─────────────── */}
-        <motion.div
+        {/* <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -186,7 +186,7 @@ export default function WhyChooseUs() {
               ))}
             </div>
           </div>
-        </motion.div>
+        </motion.div> */}
 
       </div>
     </section>

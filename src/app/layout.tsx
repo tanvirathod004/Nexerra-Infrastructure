@@ -8,6 +8,14 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
+  icons: {
+    icon: [
+      { url: "/nexerra-logo.svg", type: "image/svg+xml" },
+      { url: "/nexerra-logo.png", type: "image/png" },
+    ],
+    shortcut: "/nexerra-logo.png",
+    apple: "/nexerra-logo.png",
+  },
   title: "Nexerra Infrastructure | Where Incredible Is Possible",
   description:
     "Nexerra Infrastructure – 37+ years of excellence in RCC contracting, residential, commercial, and industrial construction across Maharashtra and Gujarat. Est. 1987.",
