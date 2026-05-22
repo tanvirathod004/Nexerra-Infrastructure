@@ -65,7 +65,7 @@ export default function Hero() {
     >
 
       {/* ══════════════ LEFT PANEL ══════════════ */}
-      <div className="w-full lg:w-[46%] flex-shrink-0 flex flex-col justify-center bg-[#F5F4EF] px-6 sm:px-10 lg:px-14 xl:px-20 pt-[96px] md:pt-[96px] pb-16 relative">
+      <div className="w-full lg:w-[46%] flex-shrink-0 flex flex-col justify-center bg-[#F5F4EF] px-6 sm:px-10 lg:px-14 xl:px-20 pt-[110px] md:pt-[110px] pb-16 relative">
 
         <motion.div
           className="w-full max-w-lg"
@@ -181,7 +181,7 @@ export default function Hero() {
 
       {/* ══════════════ RIGHT PANEL ══════════════ */}
       <div
-        className="hidden lg:flex flex-1 relative overflow-hidden pt-[96px]"
+        className="hidden lg:flex flex-1 relative overflow-hidden pt-[110px]"
         style={{ background: "linear-gradient(160deg, #0D1410 0%, #1A2A1A 55%, #0F1A0F 100%)" }}
       >
         {/* Blueprint grid overlay */}

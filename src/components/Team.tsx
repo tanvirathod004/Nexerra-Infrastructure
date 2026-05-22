@@ -1,78 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Phone, GraduationCap, Briefcase } from "lucide-react";
+import { Phone } from "lucide-react";
 import { staggerContainer, fadeUp, cardVariant, viewportConfig } from "@/lib/animations";
-
-const teamNexerra = [
-  {
-    name: "Ramesh Chotaliya",
-    role: "Founder & Director",
-    experience: "37+ Years",
-    phone: "+91 942 276 7733",
-    description: "The visionary founder behind Nexerra Infrastructure. With over 37 years in the construction industry, his leadership has delivered 40+ landmark projects across India.",
-    qualifications: ["37+ Years Field Experience", "PAN India Project Delivery"],
-    initials: "RC",
-    gradient: "from-[#1A1A1A] to-[#2D2D2D]",
-  },
-  {
-    name: "Niravv Ramesh Chotaliyaa",
-    role: "Director & Construction Manager",
-    experience: "3+ Years",
-    phone: "+91 776 909 1666",
-    description: "Civil Engineer with a Master's in Construction Management. Expert in BIM, AutoCAD, AI tools, and modern project management systems.",
-    qualifications: ["B.E. Civil Engineering – Pune University (2022)", "BIM India Certified", "PCM – Sandip University, Nashik"],
-    initials: "NC",
-    gradient: "from-[#3D5E3D] to-[#6B8C6B]",
-  },
-  {
-    name: "Deep Ramesh Chotaliya",
-    role: "Site Execution Engineer",
-    experience: "3+ Years",
-    phone: "+91 965 709 5333",
-    description: "Dedicated RCC execution specialist with hands-on experience managing mega projects. Expert in on-site labour coordination and value engineering.",
-    qualifications: ["B.Tech Civil Engineering – G.H. Raisoni, Jalgaon (2023)", "5+ Mega Projects in RCC Execution"],
-    initials: "DC",
-    gradient: "from-[#2D2D2D] to-[#4E7450]",
-  },
-];
-
-const teamCapacity = [
-  { role: "Senior Interior Designers & Architects", count: 2 },
-  { role: "Structural Engineer", count: 1 },
-  { role: "Senior Engineers", count: 6 },
-  { role: "Junior Engineers", count: 7 },
-  { role: "Estimation & Billing Engineers", count: 4 },
-];
-
-const partners = [
-  {
-    company: "Dynamic Consulting Engineers",
-    established: "Est. 2017",
-    location: "Surat, Gujarat",
-    description: "Specializing in project coordination, quality assurance, tendering, and construction management.",
-    gradient: "from-[#1A1A1A] to-[#2D2D2D]",
-    team: [
-      { name: "Mr. Roshan Shah",   role: "Senior Project Engineer",   exp: "14+ Years", qual: "B.E. Civil – Gujarat University | PGP PCIBM – MIT Pune", initials: "RS" },
-      { name: "Mr. Vishal Patel",  role: "Interior Fit-out Engineer",  exp: "7+ Years",  qual: "Interior Project Coordination Specialist",               initials: "VP" },
-    ],
-  },
-  {
-    company: "Prince Construction",
-    established: "Est. 2012",
-    location: "Surat, Gujarat",
-    description: "Expert in RCC execution and turnkey project delivery with 70+ completed projects across Gujarat.",
-    gradient: "from-[#3D5E3D] to-[#4E7450]",
-    team: [
-      { name: "Mr. Hitesh Parmar", role: "RCC Execution Lead",         exp: "19+ Years", qual: "Diploma Civil Engg. – Govt. Polytechnic Valsad (2004) | 60+ Projects", initials: "HP" },
-      { name: "Mr. Paresh Rathod", role: "Turnkey Solutions Expert",   exp: "21+ Years", qual: "Diploma Civil Engg. – Govt. Polytechnic Valsad (2002) | 70+ Projects", initials: "PR" },
-    ],
-  },
-];
+import { teamMembers, partnerCompanies } from "@/lib/data";
 
 export default function Team() {
   return (
-    <section id="team" className="py-28 overflow-hidden" style={{ background: "#F5F4EF" }}>
+    <section id="team" className="py-28 overflow-hidden bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* ── Header ─────────────────────────── */}
@@ -93,69 +28,98 @@ export default function Team() {
             variants={fadeUp}
             className="text-4xl lg:text-5xl font-black text-[#1A1A1A] mb-5 leading-tight"
           >
-            Experts in{" "}
-            <span className="sage-text">Every Discipline</span>
+            Three generations of builders.
+            <br />
+            <span className="sage-text">One name on the door.</span>
           </motion.h2>
           <motion.div variants={fadeUp} className="sage-divider mx-auto mb-6" />
           <motion.p
             variants={fadeUp}
             className="text-[#5A5A5A] text-lg max-w-3xl mx-auto leading-relaxed font-light"
           >
-            Crafting success with 37+ years of mastery — our team of professionals brings
-            unmatched expertise across every phase of construction.
+            Nexerra is led by a hands-on family team — a founder who learned the trade in
+            the field, and two engineers carrying it forward with modern construction management.
           </motion.p>
         </motion.div>
 
-        {/* ── Core team ──────────────────────── */}
+        {/* ── Core team cards ────────────────── */}
         <motion.div
-          className="grid md:grid-cols-3 gap-6 mb-16"
+          className="grid md:grid-cols-3 gap-6 mb-12"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
         >
-          {teamNexerra.map((member) => (
+          {teamMembers.map((member) => (
             <motion.div
               key={member.name}
               variants={cardVariant}
-              className="group bg-white rounded-2xl border border-[#E2E1DC] overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
+              className="group flex flex-col bg-[#F5F4EF] rounded-lg border border-[#E2E1DC] overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
             >
-              <div className={`h-32 bg-gradient-to-br ${member.gradient} flex items-center justify-center relative`}>
-                <div className="w-20 h-20 bg-white/15 backdrop-blur-sm rounded-full flex items-center justify-center border-4 border-white/25">
-                  <span className="text-white font-black text-2xl">{member.initials}</span>
-                </div>
-                <div className="absolute top-3 right-3 bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-2.5 py-1 rounded-lg">
-                  {member.experience}
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-lg font-bold text-[#1A1A1A] mb-1">{member.name}</h3>
-                <div className="text-[#6B8C6B] font-semibold text-sm mb-3">{member.role}</div>
-                <p className="text-[#5A5A5A] text-sm leading-relaxed mb-4">{member.description}</p>
-                <div className="space-y-1.5 mb-4">
-                  {member.qualifications.map((q) => (
-                    <div key={q} className="flex items-start gap-2 text-xs text-[#3D3D3D]">
-                      <GraduationCap className="w-3.5 h-3.5 text-[#6B8C6B] flex-shrink-0 mt-0.5" />
-                      {q}
+              {/* Card body */}
+              <div className="flex-1 p-6">
+                {/* Top row: avatar + tag */}
+                <div className="flex items-start justify-between mb-5">
+                  {/* Avatar */}
+                  <div className="relative">
+                    <div className="w-16 h-16 bg-[#1B2A3B] rounded-xl flex items-center justify-center shadow-md">
+                      <span className="text-[#8FBB8F] font-black text-xl tracking-tight">
+                        {member.initials}
+                      </span>
                     </div>
-                  ))}
+                    {/* Gold checkmark badge */}
+                    <div className="absolute -bottom-1.5 -right-1.5 w-5 h-5 bg-[#6B8C6B] rounded-full flex items-center justify-center shadow">
+                      <svg viewBox="0 0 10 8" className="w-2.5 h-2.5 fill-white">
+                        <path d="M1 4l2.5 2.5L9 1" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </div>
+                  </div>
+
+                  {/* Role tag */}
+                  <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B8C6B]">
+                    {member.tag}
+                  </span>
                 </div>
+
+                {/* Name + role */}
+                <h3 className="text-lg font-black text-[#1A1A1A] mb-0.5 leading-snug">
+                  {member.name}
+                </h3>
+                <div className="text-[#6B8C6B] font-semibold text-sm mb-4">
+                  {member.role}
+                </div>
+
+                {/* Description */}
+                <p className="text-[#5A5A5A] text-sm leading-relaxed">
+                  {member.description}
+                </p>
+              </div>
+
+              {/* Footer row */}
+              <div className="px-6 py-4 border-t border-[#E2E1DC] flex items-center justify-between">
                 <a
                   href={`tel:${member.phone.replace(/\s/g, "")}`}
-                  className="flex items-center gap-2 text-[#1A1A1A] font-semibold text-sm hover:text-[#6B8C6B] transition-colors group/phone"
+                  className="flex items-center gap-2 text-[#5A5A5A] text-sm hover:text-[#6B8C6B] transition-colors"
                 >
-                  <div className="w-7 h-7 bg-[#6B8C6B]/10 rounded-lg flex items-center justify-center group-hover/phone:bg-[#6B8C6B]/20 transition-colors">
-                    <Phone className="w-3.5 h-3.5 text-[#6B8C6B]" />
-                  </div>
+                  <Phone className="w-3.5 h-3.5 text-[#6B8C6B]" />
                   {member.phone}
                 </a>
+                <a
+                  href={`tel:${member.phone.replace(/\s/g, "")}`}
+                  className="text-[#1A1A1A] font-semibold text-sm hover:text-[#6B8C6B] transition-colors"
+                >
+                  Connect &rarr;
+                </a>
               </div>
+
+              {/* Amber bottom accent */}
+              <div className="h-0.5 bg-[#6B8C6B] w-full" />
             </motion.div>
           ))}
         </motion.div>
 
         {/* ── Team capacity ──────────────────── */}
-        <motion.div
+        {/* <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -175,7 +139,7 @@ export default function Team() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </motion.div> */}
 
         {/* ── Partner companies ──────────────── */}
         <motion.div
@@ -184,53 +148,94 @@ export default function Team() {
           whileInView="visible"
           viewport={viewportConfig}
         >
-          <motion.div variants={fadeUp} className="text-center mb-10">
-            <h3 className="text-3xl font-black text-[#1A1A1A] mb-2">Our Extended Family</h3>
-            <p className="text-[#5A5A5A] text-base max-w-2xl mx-auto font-light">
-              Two sister concerns standing as strong pillars alongside Nexerra Infrastructure.
+          {/* Sub-header */}
+          <motion.div variants={fadeUp} className="text-center mb-12">
+            <p className="text-[#6B8C6B] text-xs font-bold tracking-[0.2em] uppercase mb-4 flex items-center justify-center gap-2">
+              <span className="w-6 h-px bg-[#6B8C6B]" />
+              Our Extended Family
+            </p>
+            <h3 className="text-4xl lg:text-5xl font-black text-[#1A1A1A] mb-5 leading-tight">
+              Two strong pillars
+              <br />
+              standing with Nexerra.
+            </h3>
+            <p className="text-[#5A5A5A] text-base max-w-2xl mx-auto font-light leading-relaxed">
+              Both sister concerns are based in Surat, Gujarat — together we offer a full range
+              of services for architects, consultants, developers, contractors and individuals,
+              with great cost control across all sectors.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {partners.map((partner) => (
-              <motion.div
-                key={partner.company}
-                variants={cardVariant}
-                className="bg-white border border-[#E2E1DC] rounded-2xl overflow-hidden hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className={`bg-gradient-to-r ${partner.gradient} p-6 flex items-start justify-between`}>
+          {/* Split panel */}
+          <motion.div
+            variants={fadeUp}
+            className="grid md:grid-cols-2 gap-6 mb-8"
+          >
+            {partnerCompanies.map((partner) => (
+              <div key={partner.company} className="flex flex-col p-8 bg-[#F5F4EF] border border-[#E2E1DC] rounded-lg border-l-4 border-l-[#6B8C6B]">
+                {/* Top: name + stat */}
+                <div className="flex items-start justify-between mb-3">
                   <div>
-                    <h4 className="text-white font-bold text-xl mb-1">{partner.company}</h4>
-                    <div className="flex items-center gap-3 text-white/55 text-sm">
-                      <span>{partner.established}</span>
-                      <span>·</span>
-                      <span>{partner.location}</span>
-                    </div>
+                    <h4 className="text-2xl font-black text-[#1A1A1A] leading-snug mb-1">
+                      {partner.company}
+                    </h4>
+                    <p className="text-[#6B8C6B] text-xs font-bold tracking-widest uppercase">
+                      {partner.established} · {partner.location}
+                    </p>
                   </div>
-                  <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center">
-                    <Briefcase className="w-5 h-5 text-white/80" />
+                  <div className="text-right shrink-0 ml-4">
+                    <div className="text-3xl font-black text-[#6B8C6B] leading-none">{partner.stat}</div>
+                    <div className="text-[#9A9A9A] text-[10px] font-bold tracking-[0.15em] uppercase mt-0.5">{partner.statLabel}</div>
                   </div>
                 </div>
-                <div className="p-6">
-                  <p className="text-[#5A5A5A] text-sm mb-5">{partner.description}</p>
-                  <div className="space-y-3">
-                    {partner.team.map((member) => (
-                      <div key={member.name} className="flex items-start gap-3 p-3 bg-[#F2F5F2] rounded-xl border border-[#E2E1DC]">
-                        <div className={`w-10 h-10 bg-gradient-to-br ${partner.gradient} rounded-full flex items-center justify-center flex-shrink-0`}>
-                          <span className="text-white font-bold text-xs">{member.initials}</span>
-                        </div>
-                        <div>
-                          <div className="font-semibold text-[#1A1A1A] text-sm">{member.name}</div>
-                          <div className="text-[#6B8C6B] text-xs font-medium mb-0.5">{member.role} · {member.exp}</div>
-                          <div className="text-[#5A5A5A] text-xs">{member.qual}</div>
-                        </div>
+
+                {/* Specialty */}
+                <p className="text-[#1A1A1A] font-bold text-sm mb-3">{partner.specialty}</p>
+
+                {/* Description */}
+                <p className="text-[#5A5A5A] text-sm leading-relaxed mb-6">{partner.description}</p>
+
+                {/* Divider */}
+                <div className="border-t border-[#E2E1DC] mb-5" />
+
+                {/* Team members */}
+                <div className="space-y-3 mt-auto">
+                  {partner.team.map((member) => (
+                    <div key={member.name} className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-[#1B2A3B] rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span className="text-[#8FBB8F] font-black text-xs">{member.initials}</span>
                       </div>
-                    ))}
-                  </div>
+                      <div>
+                        <span className="font-bold text-[#1A1A1A] text-sm">{member.name}</span>
+                        <span className="text-[#7A7A7A] text-xs ml-2">{member.meta}</span>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </div>
+          </motion.div>
+
+          {/* Bottom dark banner */}
+          <motion.div
+            variants={fadeUp}
+            className="rounded-2xl px-8 py-7 flex flex-col md:flex-row items-center justify-between gap-6"
+            style={{ background: "linear-gradient(135deg, #1B2A3B 0%, #0F1A28 100%)" }}
+          >
+            <p className="text-white/80 text-sm leading-relaxed max-w-2xl">
+              Together, Nexerra and our sister concerns operate as{" "}
+              <span className="text-[#8FBB8F] font-semibold">three strong pillars</span>
+              {" "}— investing in technology, equipment and people to deliver high-standard
+              customer satisfaction and dispute-less construction across India.
+            </p>
+            <a
+              href="#contact"
+              onClick={(e) => { e.preventDefault(); document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" }); }}
+              className="shrink-0 inline-flex items-center gap-2 border border-white/30 text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-white/10 transition-colors whitespace-nowrap"
+            >
+              Learn about our sister concerns &rarr;
+            </a>
+          </motion.div>
         </motion.div>
 
       </div>

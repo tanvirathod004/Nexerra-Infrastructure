@@ -1,40 +1,22 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import { CheckCircle2, Target, Eye, Users, MapPin } from "lucide-react";
+import { motion } from "framer-motion";
+import { MapPin } from "lucide-react";
 import { staggerContainer, fadeUp, fadeLeft, fadeRight, viewportConfig } from "@/lib/animations";
 
-const strengths = [
-  "RCC shuttering capacity of 11,500+ sq.ft simultaneously",
-  "Full in-house team: engineers, architects, estimators & skilled labour",
-  "BIM Certified team leveraging AutoCAD, AI & digital estimation tools",
-  "ISO-aligned quality control at every construction stage",
-  "On-time delivery track record across 40+ projects",
-  "Transparent reporting with client involvement from inception to handover",
-];
 
 const timeline = [
   { year: "1987", label: "Founded", desc: "Nexerra begins operations in Nashik" },
   { year: "2000", label: "Expansion", desc: "Entered Gujarat market — Surat & Ahmedabad" },
   { year: "2012", label: "Scale-Up", desc: "Crossed 10 lakh sq.ft constructed milestone" },
   { year: "2022", label: "Innovation", desc: "BIM certification & AI-driven construction tools adopted" },
-  { year: "2024", label: "Present", desc: "40+ projects, 15L+ sq.ft across Maharashtra & Gujarat" },
+  { year: "2026", label: "Present", desc: "40+ projects, 15L+ sq.ft across Maharashtra & Gujarat" },
 ];
 
-const counters = [
-  { value: "37+", label: "Years of Mastery", sub: "Since 1987" },
-  { value: "40+", label: "Projects Delivered", sub: "Pan India" },
-  { value: "15L+", label: "Sq.Ft Constructed", sub: "Maharashtra & Gujarat" },
-  { value: "12+", label: "Cities Served", sub: "Growing network" },
-];
 
 export default function About() {
-  const counterRef = useRef<HTMLDivElement>(null);
-  const counterInView = useInView(counterRef, { once: true, amount: 0.3 });
-
   return (
-    <section id="about" className="py-28 overflow-hidden" style={{ background: "#F5F4EF" }}>
+    <section id="about" className="pt-28 pb-16 overflow-hidden" style={{ background: "#F5F4EF" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* ── Section header ───────────────────── */}
@@ -87,50 +69,71 @@ export default function About() {
           ))}
         </div> */}
 
-        {/* ── Split layout: story + cards ──────── */}
+        {/* ── Split layout: story + numbered panels ──────── */}
         <div className="grid lg:grid-cols-2 gap-16 items-start mb-24">
 
-          {/* Left — Story & strengths */}
+          {/* Left — Story */}
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={viewportConfig}
           >
-            <motion.h3 variants={fadeLeft} className="text-2xl font-bold text-[#1A1A1A] mb-5">
-              Our Story of Excellence
+            {/* "ABOUT NEXERRA" label with line */}
+            <motion.div variants={fadeLeft} className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-[2px] bg-[#6B8C6B]" />
+              <span className="text-[#6B8C6B] text-[11px] font-bold uppercase tracking-[0.2em]">
+                About Nexerra
+              </span>
+            </motion.div>
+
+            {/* Heading */}
+            <motion.h3
+              variants={fadeLeft}
+              className="text-3xl lg:text-4xl font-black text-[#1A1A1A] leading-[1.1] mb-7"
+            >
+              Quality under innovative leadership since 1987.
             </motion.h3>
-            <motion.p variants={fadeLeft} className="text-[#5A5A5A] leading-relaxed mb-4">
-              Founded in 1987, Nexerra Infrastructure has built a solid reputation for excellence,
-              reliability, and innovation across India. With a proven track record of 40+ projects
-              and 15 lakh+ square feet of construction delivered, we stand as a trusted name in
-              the industry.
-            </motion.p>
-            <motion.p variants={fadeLeft} className="text-[#5A5A5A] leading-relaxed mb-4">
-              From high-rise residential apartments and commercial complexes to industrial
-              facilities and turnkey projects, we approach every endeavor with dedication and
-              integrity, striving to exceed expectations at every step.
-            </motion.p>
-            <motion.p variants={fadeLeft} className="text-[#5A5A5A] leading-relaxed mb-10">
-              We work closely with architects, developers, and individual homeowners — keeping
-              clients informed and involved from inception to completion with full transparency.
+
+            {/* Para 1 */}
+            <motion.p variants={fadeLeft} className="text-[#5A5A5A] leading-relaxed mb-5">
+              Nexerra Infrastructure is a reputable name with{" "}
+              <strong className="text-[#1A1A1A] font-bold">37+ years of devoted service</strong>{" "}
+              in the construction business. We&apos;ve completed 40+ projects PAN India — a portfolio
+              balanced between residential and commercial developments that demonstrates our
+              adaptability and proficiency.
             </motion.p>
 
-            <motion.div variants={staggerContainer} className="space-y-3">
-              {strengths.map((s, i) => (
-                <motion.div
-                  key={i}
-                  variants={fadeLeft}
-                  className="flex items-start gap-3"
-                >
-                  <CheckCircle2 className="w-5 h-5 text-[#6B8C6B] flex-shrink-0 mt-0.5" />
-                  <span className="text-[#3D3D3D] text-sm leading-relaxed">{s}</span>
-                </motion.div>
-              ))}
-            </motion.div>
+            {/* Para 2 */}
+            <motion.p variants={fadeLeft} className="text-[#5A5A5A] leading-relaxed mb-9">
+              With our dedication to quality and creativity, we have helped to build over{" "}
+              <strong className="text-[#1A1A1A] font-bold">15 lakh+ square feet</strong> across
+              India — and we&apos;re still standing firm, still looking for opportunities to turn
+              ideas into reality.
+            </motion.p>
+
+            {/* Quote block */}
+            <motion.blockquote
+              variants={fadeLeft}
+              className="bg-white border border-[#E2E1DC] border-l-[4px] border-l-[#6B8C6B] px-6 py-5 flex items-start gap-4"
+            >
+              <span
+                className="text-[#6B8C6B] text-[2.8rem] leading-none font-serif select-none flex-shrink-0 mt-[-4px]"
+                aria-hidden="true"
+              >
+                &ldquo;
+              </span>
+              <p
+                className="text-[#3D4560] italic leading-relaxed text-[0.97rem]"
+                style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+              >
+                We meet deadlines, stay within budget, and produce outstanding
+                outcomes — putting a priority on client satisfaction.
+              </p>
+            </motion.blockquote>
           </motion.div>
 
-          {/* Right — Mission, Vision, Who We Serve */}
+          {/* Right — Mission / Vision / Approach cards */}
           <motion.div
             variants={staggerContainer}
             initial="hidden"
@@ -138,83 +141,62 @@ export default function About() {
             viewport={viewportConfig}
             className="space-y-5"
           >
-            {/* Mission */}
-            <motion.div
-              variants={fadeRight}
-              className="rounded-2xl p-7 text-white relative overflow-hidden"
-              style={{ background: "linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%)" }}
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 rounded-full -translate-y-1/2 translate-x-1/2"
-                style={{ background: "radial-gradient(circle, rgba(107,140,107,0.15) 0%, transparent 70%)" }}
-              />
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-[#6B8C6B]/20 rounded-xl flex items-center justify-center border border-[#6B8C6B]/30">
-                  <Target className="w-5 h-5 text-[#8FBB8F]" />
-                </div>
-                <h3 className="text-lg font-bold">Our Mission</h3>
-              </div>
-              <p className="text-white/65 leading-relaxed text-sm">
-                We are committed to building lasting structures with top-notch craftsmanship and
-                innovative solutions. Our goal is to exceed client expectations by delivering
-                quality, safety, and value in every project — guided by integrity and a relentless
-                pursuit of excellence, creating lasting value for our clients, employees, and
-                stakeholders.
-              </p>
-            </motion.div>
-
-            {/* Vision */}
-            <motion.div
-              variants={fadeRight}
-              className="rounded-2xl p-7 relative overflow-hidden"
-              style={{ background: "linear-gradient(135deg, #6B8C6B 0%, #3D5E3D 100%)" }}
-            >
-              <div className="absolute bottom-0 left-0 w-40 h-40 rounded-full translate-y-1/2 -translate-x-1/2"
-                style={{ background: "radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%)" }}
-              />
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center border border-white/30">
-                  <Eye className="w-5 h-5 text-white" />
-                </div>
-                <h3 className="text-lg font-bold text-white">Our Vision</h3>
-              </div>
-              <p className="text-white/75 leading-relaxed text-sm">
-                We aim to be the go-to name for construction excellence — known for our dedication
-                to quality, safety, and sustainability. We aspire to create iconic landmarks that
-                inspire awe, enrich lives, and leave a positive legacy for generations to come,
-                continuously pushing boundaries and redefining what is possible.
-              </p>
-            </motion.div>
-
-            {/* Who we serve */}
-            <motion.div
-              variants={fadeRight}
-              className="bg-white rounded-2xl p-7 border border-[#E2E1DC]"
-            >
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 bg-[#6B8C6B]/10 rounded-xl flex items-center justify-center border border-[#6B8C6B]/20">
-                  <Users className="w-5 h-5 text-[#6B8C6B]" />
-                </div>
-                <h3 className="text-lg font-bold text-[#1A1A1A]">Who We Serve</h3>
-              </div>
-              <div className="grid grid-cols-2 gap-2">
-                {[
-                  "Architects & Designers", "Property Developers",
-                  "Consultants", "Contractors",
-                  "Corporate Owners", "Government Bodies",
-                ].map((client) => (
-                  <div key={client} className="flex items-center gap-2 text-[#3D3D3D] text-sm py-1.5">
-                    <span className="w-1.5 h-1.5 bg-[#6B8C6B] rounded-full flex-shrink-0" />
-                    {client}
+            {[
+              {
+                num: "01",
+                label: "Our Mission",
+                heading: "Building lasting structures with top-notch craftsmanship.",
+                desc: "We exceed client expectations by delivering quality, safety and value in every project — guided by integrity, innovation, and a commitment to excellence. Through collaborative partnerships we create lasting value for clients, employees and stakeholders.",
+              },
+              {
+                num: "02",
+                label: "Our Vision",
+                heading: "To be the go-to name for construction excellence.",
+                desc: "Known for dedication to quality, safety and sustainability. Our vision extends beyond mere structures — we aspire to create iconic landmarks that inspire awe, enrich lives, and leave a positive legacy for generations to come.",
+              },
+              {
+                num: "03",
+                label: "Our Approach",
+                heading: "Communication, transparency, accountability.",
+                desc: "We work closely with our clients, keeping them informed and involved from inception to completion — to ensure their vision becomes a reality. No surprises, no shortcuts.",
+              },
+            ].map((item) => (
+              <motion.div
+                key={item.num}
+                variants={fadeRight}
+                className="bg-white border border-[#E2E1DC] border-t-[3px] border-t-[#6B8C6B] p-7"
+              >
+                {/* Top row: label+heading on left, number on right */}
+                <div className="flex items-start justify-between gap-4 mb-4">
+                  <div className="flex-1">
+                    <span className="block text-[#6B8C6B] text-[11px] font-bold uppercase tracking-[0.22em] mb-2">
+                      {item.label}
+                    </span>
+                    <h4
+                      className="text-[#1A1A1A] font-bold text-[1.2rem] leading-[1.3]"
+                      style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+                    >
+                      {item.heading}
+                    </h4>
                   </div>
-                ))}
-              </div>
-            </motion.div>
+                  <span
+                    className="font-black text-[3.5rem] leading-none select-none flex-shrink-0"
+                    style={{ color: "#D8D5CE", lineHeight: 1 }}
+                  >
+                    {item.num}
+                  </span>
+                </div>
+
+                {/* Description */}
+                <p className="text-[#666] text-sm leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
 
         {/* ── Timeline ────────────────────────── */}
         <motion.div
-          className="mb-24"
+          className=""
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -230,7 +212,7 @@ export default function About() {
             <div className="hidden lg:block absolute top-5 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#6B8C6B]/30 to-transparent" />
 
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-4">
-              {timeline.map((item, i) => (
+              {timeline.map((item) => (
                 <motion.div
                   key={item.year}
                   variants={fadeUp}
@@ -250,7 +232,7 @@ export default function About() {
         </motion.div>
 
         {/* ── Pan-India locations banner ────────── */}
-        <motion.div
+        {/* <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -301,7 +283,7 @@ export default function About() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </motion.div> */}
 
       </div>
     </section>

@@ -310,20 +310,72 @@ export const testimonials = [
   },
 ];
 
-export const partnerCompanies = [
+export const teamMembers = [
   {
-    name: "Dynamic Consulting Engineers",
-    established: "2017",
-    location: "Surat, Gujarat",
+    name: "Ramesh Chotaliya",
+    role: "Founder",
+    tag: "Founder · Est. 1987",
+    phone: "+91 942 276 7733",
+    initials: "RC",
     description:
-      "Specializing in project coordination, quality assurance, tendering, estimation, and construction management services.",
+      "Founder of Nexerra Infrastructure. Three and a half decades of devoted service in the construction business, providing quality under innovative leadership since 1987. The driving force behind Nexerra's commitment to deadlines, budgets and outstanding outcomes.",
   },
   {
-    name: "Prince Construction",
-    established: "2012",
-    location: "Surat, Gujarat",
+    name: "Niravv Ramesh Chotaliyaa",
+    role: "Director · Construction Management",
+    tag: "Construction Mgmt.",
+    phone: "+91 776 909 1666",
+    initials: "NR",
     description:
-      "Expert in RCC execution and turnkey project solutions with 70+ completed projects across Gujarat.",
+      "A dedicated civil engineer with a Master's in Construction Management — a robust blend of technical expertise and managerial acumen. Bachelor of Civil Engineering (2022) from Pune University; PCM from Sandip University, Nashik; BIM India certified. Coordinates clients, architects and consultants at every phase. Skilled in AutoCAD, MS Office and advanced tech tools.",
+  },
+  {
+    name: "Deep Ramesh Chotaliya",
+    role: "Director · Execution & RCC",
+    tag: "Execution & RCC",
+    phone: "+91 965 709 5333",
+    initials: "DR",
+    description:
+      "3+ years of focused execution experience in RCC and post-completion works. B.Tech in Civil Engineering (2023), G.H. Raisoni, Jalgaon. Has executed 5+ mega RCC projects with excellent quality and client satisfaction. Excellent on-field manpower management and value engineering. Coordinates project teams and contractors through to timely completion.",
+  },
+];
+
+export const teamCapacity = [
+  { role: "Senior Interior Designers & Architects", count: 2 },
+  { role: "Structural Engineer",                    count: 1 },
+  { role: "Senior Engineers",                       count: 6 },
+  { role: "Junior Engineers",                       count: 7 },
+  { role: "Estimation & Billing Engineers",         count: 4 },
+];
+
+export const partnerCompanies = [
+  {
+    company: "Prince Construction",
+    established: "Est. 2012",
+    location: "Surat",
+    specialty: "Civil execution, RCC works & finishes",
+    description:
+      "Founded under the leadership of experienced engineers and entrepreneurs. Specializes in RCC execution and civil finishes work — turnkey projects from clinics and offices to hotels and showrooms across Gujarat.",
+    stat: "60+",
+    statLabel: "Projects",
+    team: [
+      { name: "Hitesh Parmar", meta: "19+ yrs · Civil Engineering · 60+ projects", initials: "HP" },
+      { name: "Paresh Rathod", meta: "21+ yrs · Turnkey · RCC · 70+ projects",     initials: "PR" },
+    ],
+  },
+  {
+    company: "Dynamic Consulting Engineers",
+    established: "Est. 2017",
+    location: "Surat",
+    specialty: "Project coordination, tenders, estimation",
+    description:
+      "Specialists in project coordination, quality assurance, construction planning and tendering. They prepare and review tenders, bills and timelines, and provide value engineering services — the strategic side of building.",
+    stat: "40+",
+    statLabel: "Tenders",
+    team: [
+      { name: "Roshan Shah",  meta: "14+ yrs · Civil + PCIBM (MIT Pune)",     initials: "RS" },
+      { name: "Vishal Patel", meta: "7+ yrs · Interior fit-out & civil works", initials: "VP" },
+    ],
   },
 ];
 
