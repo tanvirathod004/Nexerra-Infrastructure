@@ -60,12 +60,12 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="flex min-h-screen relative"
+      className="flex flex-col lg:flex-row min-h-screen relative"
       /* offset for fixed header: 30px top-bar + 66px nav = 96px on desktop, 66px on mobile */
     >
 
       {/* ══════════════ LEFT PANEL ══════════════ */}
-      <div className="w-full lg:w-[46%] flex-shrink-0 flex flex-col justify-center bg-[#F5F4EF] px-6 sm:px-10 lg:px-14 xl:px-20 pt-[110px] md:pt-[110px] pb-16 relative">
+      <div className="w-full lg:w-[46%] flex-shrink-0 flex flex-col justify-center bg-[#F5F4EF] px-6 sm:px-10 lg:px-14 xl:px-20 pt-[110px] md:pt-[110px] pb-10 lg:pb-16 relative">
 
         <motion.div
           className="w-full max-w-lg"
@@ -85,7 +85,7 @@ export default function Hero() {
           {/* Headline */}
           <motion.h1
             variants={fade(22)}
-            className="text-[2.6rem] sm:text-5xl lg:text-[3.25rem] xl:text-[3.6rem] font-black text-[#181818] leading-[1.07] tracking-tight mb-6"
+            className="text-[2.1rem] sm:text-5xl lg:text-[3.25rem] xl:text-[3.6rem] font-black text-[#181818] leading-[1.07] tracking-tight mb-6"
           >
             Building India&apos;s<br />
             future on{" "}
@@ -146,13 +146,33 @@ export default function Hero() {
             <p className="text-[#AAA] text-[10px] font-bold uppercase tracking-[0.22em] mb-3">
               Trusted by 40+ Clients &amp; Architects
             </p>
-            {/* <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-              {trustBrands.map((brand) => (
-                <span key={brand} className="text-[#2D2D2D]/30 text-sm font-black tracking-widest">
-                  {brand}
-                </span>
+          </motion.div>
+
+          {/* Mobile-only stats grid */}
+          <motion.div
+            variants={fade(10)}
+            className="flex lg:hidden flex-col gap-3 mt-6"
+          >
+            <div className="grid grid-cols-2 gap-2.5">
+              {stats.map(({ Icon, value, label }, i) => (
+                <motion.div
+                  key={value}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.9 + i * 0.1, duration: 0.45 }}
+                  className="bg-white rounded-xl px-3.5 py-3 flex items-center gap-3 shadow-md border border-gray-100 border-l-4 border-l-[#6B8C6B]"
+                >
+                  <div className="w-8 h-8 rounded-lg bg-[#6B8C6B]/12 flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-4 h-4 text-[#6B8C6B]" />
+                  </div>
+                  <div>
+                    <div className="text-xl font-black text-[#181818] leading-none mb-0.5">{value}</div>
+                    <div className="text-[9px] text-[#666] leading-snug whitespace-pre-line">{label}</div>
+                  </div>
+                </motion.div>
               ))}
-            </div> */}
+            </div>
+
           </motion.div>
 
         </motion.div>
@@ -181,7 +201,7 @@ export default function Hero() {
 
       {/* ══════════════ RIGHT PANEL ══════════════ */}
       <div
-        className="hidden lg:flex flex-1 relative overflow-hidden pt-[110px]"
+        className="flex h-64 sm:h-72 lg:h-auto lg:flex-1 relative overflow-hidden lg:pt-[110px]"
         style={{ background: "linear-gradient(160deg, #0D1410 0%, #1A2A1A 55%, #0F1A0F 100%)" }}
       >
         {/* Blueprint grid overlay */}
